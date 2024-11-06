@@ -1,0 +1,29 @@
+CREATE TABLE category (
+    CateID INT PRIMARY KEY,
+    CategoryName VARCHAR(150),
+    Description VARCHAR(500)
+);
+
+CREATE TABLE product (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(150),
+    CateID INT,
+    Price DOUBLE,
+    Quantity INT,
+    Description VARCHAR(500),
+    Picture VARCHAR(200),
+    FOREIGN KEY (CateID) REFERENCES category(CateID)
+);
+-- Dữ liệu ví dụ cho bảng category
+INSERT INTO category (CateID, CategoryName, Description) VALUES
+(1, 'Electronics', 'Devices like phones, laptops, and other gadgets'),
+(2, 'Clothing', 'Apparel including shirts, pants, and accessories'),
+(3, 'Books', 'Various genres of books including fiction, non-fiction, and textbooks');
+
+-- Dữ liệu ví dụ cho bảng product
+INSERT INTO product (ProductID, ProductName, CateID, Price, Quantity, Description, Picture) VALUES
+(1, 'Smartphone', 1, 599.99, 50, 'Latest model with high-resolution camera', 'smartphone.jpg'),
+(2, 'Laptop', 1, 999.99, 30, 'Powerful laptop with 16GB RAM and 512GB SSD', 'laptop.jpg'),
+(3, 'T-shirt', 2, 19.99, 100, 'Cotton t-shirt available in multiple colors', 'tshirt.jpg'),
+(4, 'Novel', 3, 14.99, 200, 'Bestselling novel with thrilling plot', 'novel.jpg'),
+(5, 'Jeans', 2, 39.99, 80, 'Comfortable denim jeans in various sizes', 'jeans.jpg');
